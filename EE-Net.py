@@ -213,7 +213,7 @@ if __name__ == '__main__':
     regrets_all = []
     add_l1 = 1
     lr_1 = 0.0001
-    lr_2 = 0.01
+    lr_2 = 0.001
     lr_3 = 0.001
     for i in range(5):
         if args.dataset == "yelp":
@@ -227,7 +227,7 @@ if __name__ == '__main__':
         elif args.dataset == "mnist":
             b = load_mnist_1d()
             lr_1 = 0.0001
-            lr_2 = 0.01
+            lr_2 = 0.001
             lr_3 = 0.001
 
         elif args.dataset == "movielens":
