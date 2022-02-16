@@ -20,7 +20,7 @@ from sklearn.manifold import LocallyLinearEmbedding
 
 
 if torch.cuda.is_available():  
-    dev = "cuda:3" 
+    dev = "cuda:0" 
 else:  
     dev = "cpu" 
 device = torch.device(dev)
