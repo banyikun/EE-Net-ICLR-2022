@@ -9,7 +9,7 @@ author={Yikun Ban and Yuchen Yan and Arindam Banerjee and Jingrui He},
 
 booktitle={International Conference on Learning Representations},
 
-year={2022},
+year={2022}
 }
 
 
