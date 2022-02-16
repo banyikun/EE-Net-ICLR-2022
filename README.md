@@ -1,13 +1,15 @@
 
 # EE-Net
 
-@inproceedings{
-ban2022eenet,
+@inproceedings{ban2022eenet,
+
 title={{EE}-Net: Exploitation-Exploration Neural Networks in Contextual Bandits},
+
 author={Yikun Ban and Yuchen Yan and Arindam Banerjee and Jingrui He},
+
 booktitle={International Conference on Learning Representations},
+
 year={2022},
-url={https://openreview.net/forum?id=X_ch3VrNSRg}
 }
 
 
