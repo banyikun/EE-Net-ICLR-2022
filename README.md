@@ -22,13 +22,12 @@ pandas 1.2.4
 
 ## Methods:
 
-* EE-Net.py  -  Proposed algorithm 
+* EE_Net.py  -  Proposed algorithm 
 * neural-epsilon.py - fully-connected neural network with epsilon-greedy exploration strategy
 * neuralTS.py - Neural thompson sampling  [Zhang et al. 2020]
 * neuralUCB.py - Neural UCB [Zhou et al. 2020]
 * kernalUCB.py - Kernal UCB [Valko et al., 2013a]
 * linUCB.py - LinUCB [Li et al., 2010]
-* neural-noexplore.py - pure exploitation with fully-connected neural network
 
 * packages.py - all the needed packages
 * load_data.py - load the datasets
