@@ -34,6 +34,9 @@ pandas 1.2.4
 * movie_10000items_2000users_feature.npy - processed movielens data
 * yelp_10000items_2000users_features.npy - processed yelp data
 
+
+For disin dataset, as the processed files are too large, feel free to contact me if you need them. 
+
 ## Methods:
 EE-Net, KernelUCB, LinUCB, Neural_epsilon, NeuralTS, NeuralUCB 
 
