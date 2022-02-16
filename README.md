@@ -20,22 +20,29 @@ scipy 1.6.2
 pandas 1.2.4
 
 
-## Methods:
+
 
 * EE_Net.py  -  Proposed algorithm 
-* neural-epsilon.py - fully-connected neural network with epsilon-greedy exploration strategy
-* neuralTS.py - Neural thompson sampling  [Zhang et al. 2020]
-* neuralUCB.py - Neural UCB [Zhou et al. 2020]
-* kernalUCB.py - Kernal UCB [Valko et al., 2013a]
-* linUCB.py - LinUCB [Li et al., 2010]
+* Neural_epsilon.py - fully-connected neural network with epsilon-greedy exploration strategy
+* NeuralTS.py - Neural thompson sampling  [Zhang et al. 2020]
+* NeuralUCB.py - NeuralUCB [Zhou et al. 2020]
+* KernelUCB.py - KernelUCB [Valko et al., 2013a]
+* LinUCB.py - LinUCB [Li et al., 2010]
 
 * packages.py - all the needed packages
 * load_data.py - load the datasets
+* movie_10000items_2000users_feature.npy - processed movielens data
+* yelp_10000items_2000users_features.npy - processed yelp data
+
+## Methods:
+EE-Net, KernelUCB, LinUCB, Neural_epsilon, NeuralTS, NeuralUCB 
+
 
 ## Datasets:
 mnist, yelp, disin, movielens
 
-## Run:
-python "method" --dataset "dataset"
 
-For example,   python EE-Net.py --dataset mnist   ; python neuralUCB.py --dataset yelp
+## Run:
+python run.py --dataset "dataset" --method "method"
+
+For example, python run.py --dataset mnist --method EE-Net   
