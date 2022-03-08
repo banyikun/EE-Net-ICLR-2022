@@ -108,8 +108,8 @@ if __name__ == '__main__':
             '''hybrid decision maker'''
             if t < 500:
                 '''sample linear model'''
-                suml = res1_list + res2_list
-                arm_select = np.argmax(suml)
+                sum_list12 = res1_list + res2_list
+                arm_select = np.argmax(sum_list12)
             else:
                 '''neural model'''
                 arm_select = f_3.select(new_context)
@@ -129,9 +129,9 @@ if __name__ == '__main__':
                 index = 0
                 for i in gra_list:
                     '''set small scores for un-selected arms if the selected arm is 0-reward'''
-                    c = (1/np.log(t+10))
+                    small_score = (1/np.log(t+10))
                     if index != arm_select:
-                        f_2.update(i, c)
+                        f_2.update(i, small_score)
                     index += 1
 
             '''label for decision maker'''
