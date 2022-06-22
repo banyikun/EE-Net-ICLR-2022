@@ -47,17 +47,17 @@ pandas 1.2.4
 * yelp_10000items_2000users_features.npy - processed yelp data
 
 
-For disin dataset, as the processed files are too large, feel free to contact me if you need them. 
-
 ## Methods:
 EE-Net, KernelUCB, LinUCB, Neural_epsilon, NeuralTS, NeuralUCB 
 
 
 ## Datasets:
-mnist, yelp, disin, movielens
+mnist
 
 
 ## Run:
+python EENet_run.py
+
 python run.py --dataset "dataset" --method "method"
 
 For example, python run.py --dataset mnist --method EE-Net   
