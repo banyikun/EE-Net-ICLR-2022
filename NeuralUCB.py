@@ -18,6 +18,7 @@ class NeuralUCBDiag:
         self.total_param = sum(p.numel() for p in self.func.parameters() if p.requires_grad)
         self.U = lamdba * torch.ones((self.total_param,)).to(device)
         self.nu = nu
+        self.lr = 0.01
 
     def select(self, context):
         tensor = torch.from_numpy(context).float().to(device)
@@ -50,7 +51,7 @@ class NeuralUCBDiag:
         self.reward.append(reward)
 
     def train(self, t):
-        optimizer = optim.SGD(self.func.parameters(), lr=1e-3)
+        optimizer = optim.SGD(self.func.parameters(), lr=self.lr)
         length = len(self.reward)
         index = np.arange(length)
         np.random.shuffle(index)
@@ -69,7 +70,7 @@ class NeuralUCBDiag:
                 batch_loss += loss.item()
                 tot_loss += loss.item()
                 cnt += 1
-                if cnt >= 1000:
-                    return tot_loss / 1000
+                if cnt >= 2000:
+                    return tot_loss / 2000
             if batch_loss / length <= 1e-3:
                 return batch_loss / length

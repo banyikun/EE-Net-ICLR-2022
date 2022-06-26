@@ -46,9 +46,9 @@ class load_mnist_1d:
 class load_yelp:
     def __init__(self):
         # Fetch data
-        self.m = np.load("./yelp_2000users_10000items_entry.npy")
-        self.U = np.load("./yelp_2000users_10000items_features.npy")
-        self.I = np.load("./yelp_10000items_2000users_features.npy")
+        self.m = np.load("./data/yelp_2000users_10000items_entry.npy")
+        self.U = np.load("./data/yelp_2000users_10000items_features.npy")
+        self.I = np.load("./data/yelp_10000items_2000users_features.npy")
         self.n_arm = 10
         self.dim = 20
         self.pos_index = []
@@ -85,9 +85,9 @@ class load_yelp:
 class load_movielen:
     def __init__(self):
         # Fetch data
-        self.m = np.load("./movie_2000users_10000items_entry.npy")
-        self.U = np.load("./movie_2000users_10000items_features.npy")
-        self.I = np.load("./movie_10000items_2000users_features.npy")
+        self.m = np.load("./data/movie_2000users_10000items_entry.npy")
+        self.U = np.load("./data/movie_2000users_10000items_features.npy")
+        self.I = np.load("./data/movie_10000items_2000users_features.npy")
         self.n_arm = 10
         self.dim = 20
         self.pos_index = []
@@ -122,75 +122,3 @@ class load_movielen:
     
     
     
-class load_disin:
-    def __init__(self):
-        # Fetch data
-        self.d = np.load('./feature_matrix.pkl', allow_pickle=True)
-        self.l = np.load('./label_matrix.pkl', allow_pickle=True)
-        self.n_arm = 10
-        self.dim = 300
-        self.pos_index = []
-        self.neg_index = []
-        for i in range(len(self.l)):
-            if self.l[i] > 0:
-                self.pos_index.append(i)
-            else: 
-                self.neg_index.append(i)
-        self.pos_index = np.array(self.pos_index)
-        self.neg_index = np.array(self.neg_index)
-        print(len(self.pos_index), len(self.neg_index))
-
-
-    def step(self):        
-        arm = np.random.choice(range(10))
-        #print(pos_index.shape)
-        pos = np.random.choice(self.pos_index, size = 9, replace=False)
-        neg = np.random.choice(self.neg_index, size = 1, replace=False)
-        X_ind = np.concatenate((pos, neg))
-        np.random.shuffle(X_ind)
-        X = []
-        rwd = []
-        for ind in X_ind:
-            #X.append(np.sqrt(np.multiply(self.I[ind], u_fea)))
-            X.append(self.d[ind])
-            if self.l[ind]>0:
-                rwd.append(0.0)
-            else:
-                rwd.append(1.0)
-        return np.array(X), rwd
-    
-class load_disin_20:
-    def __init__(self):
-        # Fetch data
-        self.d = np.load('./disin_feature_matrix.pkl', allow_pickle=True)
-        self.l = np.load('./disin_label_matrix.pkl', allow_pickle=True)
-        self.n_arm = 20
-        self.dim = 300
-        self.pos_index = []
-        self.neg_index = []
-        for i in range(len(self.l)):
-            if self.l[i] > 0:
-                self.pos_index.append(i)
-            else: 
-                self.neg_index.append(i)
-        self.pos_index = np.array(self.pos_index)
-        self.neg_index = np.array(self.neg_index)
-        print(len(self.pos_index), len(self.neg_index))
-
-
-    def step(self):        
-        #print(pos_index.shape)
-        pos = np.random.choice(self.pos_index, size = 19, replace=False)
-        neg = np.random.choice(self.neg_index, size = 1, replace=False)
-        X_ind = np.concatenate((pos, neg))
-        np.random.shuffle(X_ind)
-        X = []
-        rwd = []
-        for ind in X_ind:
-            #X.append(np.sqrt(np.multiply(self.I[ind], u_fea)))
-            X.append(self.d[ind])
-            if self.l[ind]>0:
-                rwd.append(0.0)
-            else:
-                rwd.append(1.0)
-        return np.array(X), rwd

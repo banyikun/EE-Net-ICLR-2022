@@ -31,7 +31,7 @@ class NeuralTS:
         self.m = m
         self.d = dim
         self.estimator=Network(self.d, hidden_size=m).to(device)
-        self.optimizer = torch.optim.SGD(self.estimator.parameters(), lr = 0.001)
+        self.optimizer = torch.optim.SGD(self.estimator.parameters(), lr = 0.01)
         self.current_loss=0
         self.t=1
         self.total_param = sum(p.numel() for p in self.estimator.parameters() if p.requires_grad)
@@ -99,8 +99,8 @@ class NeuralTS:
                 batch_loss +=  self.current_loss.item()
                 tot_loss +=  self.current_loss.item()
                 cnt += 1
-                if cnt >= 1000:
-                    return tot_loss / 1000
+                if cnt >= 2000:
+                    return tot_loss / 2000
             if batch_loss / length <= 1e-3:
                 return batch_loss / length
       

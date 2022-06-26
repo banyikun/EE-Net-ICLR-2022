@@ -41,4 +41,4 @@ if __name__ == '__main__':
         print(' regret: {:},  average_regret: {:.2f}'.format(sum_regret, sum_regret/(t+1)))
         regrets_all.append(regrets)
 
-    np.save('./results/eenet_results.npy'.format(now), regrets_all)
+    np.save('./results/eenet_results.npy', regrets_all)
