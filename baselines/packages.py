@@ -13,14 +13,10 @@ from collections import defaultdict
 import scipy.io as sio
 import scipy.sparse as spp
 import scipy as sp
-from sklearn.preprocessing import normalize
-import json
-from sklearn.decomposition import PCA
-from sklearn.manifold import LocallyLinearEmbedding
 
 
 if torch.cuda.is_available():  
-    dev = "cuda:0" 
+    dev = "cuda:1" 
 else:  
     dev = "cpu" 
 device = torch.device(dev)

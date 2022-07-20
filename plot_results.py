@@ -11,7 +11,7 @@ if __name__ == '__main__':
     plt.figure(figsize=(10, 6))
 
 
-    ee = np.load('./results/eenet_results.npy')
+    ee = np.load('./results/eenet_results1.npy')
     ee_mean, ee_std = get_mean_std(ee)
     plt.plot(x, ee_mean, 'k-', color='red',linewidth=2.0,linestyle='-', label = 'EE-Net')
     plt.fill_between(x, ee_mean-ee_std, ee_mean+ee_std, facecolor='red', alpha=0.2)
@@ -37,4 +37,4 @@ if __name__ == '__main__':
     plt.legend()
     plt.title("Mnist")
     #plt.rcParams["figure.figsize"] = (20, 10)
-    plt.savefig('./figures/regret_mnist_new.pdf', dpi=500)
+    plt.savefig('./figures/regret_mnist.pdf', dpi=500)
