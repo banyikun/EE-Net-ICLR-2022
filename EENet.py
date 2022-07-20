@@ -1,14 +1,14 @@
 import numpy as np
-from EENetClassCopy import Exploitation, Exploration, Decision_maker
+from EENetClass import Exploitation, Exploration, Decision_maker
 
 
 class EE_Net:
-    def __init__(self, dim, n_arm, pooling_step_size, lr_1 = 0.01, lr_2 = 0.01, lr_3 = 0.01, hidden=100, neural_decision_maker = False):
+    def __init__(self, dim, n_arm, pool_step_size, lr_1 = 0.01, lr_2 = 0.01, lr_3 = 0.01, hidden=100, neural_decision_maker = False):
         #Network 1
-        self.f_1 = Exploitation(dim, n_arm, pooling_step_size, lr_1, hidden)
+        self.f_1 = Exploitation(dim, n_arm, pool_step_size, lr_1, hidden)
         
         # number of dimensions of aggregated for f_2  
-        f_2_input_dim = self.f_1.total_param // pooling_step_size + 1
+        f_2_input_dim = self.f_1.total_param // pool_step_size + 1
         #Network 2
         self.f_2 = Exploration(f_2_input_dim, lr_2)
         

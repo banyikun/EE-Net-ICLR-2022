@@ -1,63 +1,36 @@
 
-# EE-Net
+# EE-Net: Exploitation-Exploration Neural Networks in Contextual Bandits
 
-@inproceedings{ban2022eenet,
+In this repository, we provide one implementation of EE-Net, where the linear decision-maker (e.g., f1 + f2 ) and neural decision-maker (f3) are provided respectively. For the exploration network, one-layer CNN is used to reduce the dimensionality of gradient of exploitation network. 
 
-title={{EE}-Net: Exploitation-Exploration Neural Networks in Contextual Bandits},
 
-author={Yikun Ban and Yuchen Yan and Arindam Banerjee and Jingrui He},
+## Run:
 
-booktitle={International Conference on Learning Representations},
+Run EE-Net on Mnist:
 
-year={2022}
-}
+```bash
+python EENet_run.py
+```
+
+Run baselines on Mnist:
+
+```bash
+python  baselines/baselines_run.py
+```
+
 
 
 ## Prerequisites: 
 
-python 3.8.8
-
-CUDA 11.2
-
-torch 1.9.0
-
-torchvision 0.10.0
-
-sklearn 0.24.1
-
-numpy 1.20.1
-
-scipy 1.6.2
-
-pandas 1.2.4
+python 3.8.8, CUDA 11.2, torch 1.9.0, torchvision 0.10.0, sklearn 0.24.1, numpy 1.20.1, scipy 1.6.2, pandas 1.2.4
 
 
+## Hyper-parameters
 
+[dim](): dimensionality of arm context vector
 
-* EENet_run.py  - Run proposed algorithm 
-* Neural_epsilon.py - fully-connected neural network with epsilon-greedy exploration strategy
-* NeuralTS.py - Neural thompson sampling  [Zhang et al. 2020]
-* NeuralUCB.py - NeuralUCB [Zhou et al. 2020]
-* KernelUCB.py - KernelUCB [Valko et al., 2013a]
-* LinUCB.py - LinUCB [Li et al., 2010]
+[n_arm](): number of arms.
 
-* packages.py - all the needed packages
-* load_data.py - load the datasets
-* movie_10000items_2000users_feature.npy - processed movielens data
-* yelp_10000items_2000users_features.npy - processed yelp data
+[pooling_step_size](): aggregation size for the gradient, and the aggregated gradient will be the input of f2
 
-
-## Methods:
-EE-Net, KernelUCB, LinUCB, Neural_epsilon, NeuralTS, NeuralUCB 
-
-
-## Datasets:
-mnist
-
-
-## Run:
-python EENet_run.py
-
-python run.py --dataset "dataset" --method "method"
-
-For example, python run.py --dataset mnist --method EE-Net   
+[hidden](): width of all neural networks

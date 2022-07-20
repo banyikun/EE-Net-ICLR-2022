@@ -1,5 +1,5 @@
 from baselines.load_data import load_mnist_1d
-from EENetCopy import EE_Net
+from EENet import EE_Net
 import numpy as np
 import os
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
         regrets = []
         sum_regret = 0
-        ee_net = EE_Net(b.dim, b.n_arm, pooling_step_size = 50, lr_1 = lr_1, lr_2 = lr_2, lr_3 = lr_3,  hidden=100, neural_decision_maker = False)
+        ee_net = EE_Net(b.dim, b.n_arm, pool_step_size = 50, lr_1 = lr_1, lr_2 = lr_2, lr_3 = lr_3,  hidden=100, neural_decision_maker = False)
         for t in range(10000):
             context, rwd = b.step()
             arm_select = ee_net.predict(context, t)
