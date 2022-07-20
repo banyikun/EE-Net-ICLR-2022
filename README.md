@@ -15,7 +15,7 @@ python EENet_run.py
 Run baselines on Mnist:
 
 ```bash
-python  baselines/baselines_run.py
+python baselines/baselines_run.py
 ```
 
 
