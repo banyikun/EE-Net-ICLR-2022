@@ -27,10 +27,10 @@ python 3.8.8, CUDA 11.2, torch 1.9.0, torchvision 0.10.0, sklearn 0.24.1, numpy 
 
 ## Hyper-parameters
 
-[dim](): dimensionality of arm context vector
+[dim](https://github.com/banyikun/EE-Net-ICLR-2022/blob/d85d1f98b38d80ccb37f2f73cc964804f321fc68/EENet.py#L6): dimensionality of arm context vector
 
-[n_arm](): number of arms.
+[n_arm](https://github.com/banyikun/EE-Net-ICLR-2022/blob/d85d1f98b38d80ccb37f2f73cc964804f321fc68/EENet.py#L6): number of arms.
 
-[pooling_step_size](): aggregation size for the gradient, and the aggregated gradient will be the input of f2
+[pooling_step_size](https://github.com/banyikun/EE-Net-ICLR-2022/blob/d85d1f98b38d80ccb37f2f73cc964804f321fc68/EENetClass.py#L96): aggregation size for the gradient, and the aggregated gradient will be the input of f2
 
-[hidden](): width of all neural networks
+[hidden](https://github.com/banyikun/EE-Net-ICLR-2022/blob/d85d1f98b38d80ccb37f2f73cc964804f321fc68/EENet.py#L6): width of all neural networks
