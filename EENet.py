@@ -37,7 +37,7 @@ class EE_Net:
         else:
             # linear decision maker
             f_2_weight = 1.0
-            if t > 1000: f_2_weight = 0.1
+            if t > 1000: f_2_weight = 0.01
             suml = self.exploit_scores + f_2_weight * (self.explore_scores-1.0)
             self.arm_select = np.argmax(suml)
         return self.arm_select
