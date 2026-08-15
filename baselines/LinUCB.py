@@ -15,7 +15,7 @@ class Linearucb:
 
     def select(self, context):
         sig = np.diag(np.matmul(np.matmul(context, self.Uinv), context.T))
-        r = np.dot(context, self.mu) + np.sqrt(self.lamdba * self.nu) * sig
+        r = np.dot(context, self.mu) + np.sqrt(self.lamdba * self.nu) * np.sqrt(sig)
         return np.argmax(r)
         
     
